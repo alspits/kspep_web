@@ -4,22 +4,22 @@ const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
 
 function closeMenu() {
-  menuButton.setAttribute('aria-expanded', 'false');
-  navigation.classList.remove('is-open');
+  menuButton?.setAttribute('aria-expanded', 'false');
+  navigation?.classList.remove('is-open');
 }
 
-menuButton.addEventListener('click', () => {
+menuButton?.addEventListener('click', () => {
   const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
   menuButton.setAttribute('aria-expanded', String(!isOpen));
   navigation.classList.toggle('is-open', !isOpen);
 });
 
-navigation.addEventListener('click', (event) => {
+navigation?.addEventListener('click', (event) => {
   if (event.target.closest('a')) closeMenu();
 });
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+  if (event.key === 'Escape' && menuButton?.getAttribute('aria-expanded') === 'true') {
     closeMenu();
     menuButton.focus();
   }
@@ -139,12 +139,14 @@ if (!motionPreference.matches && Element.prototype.animate) {
     animation.onfinish = () => { animation.cancel(); activeAnimations.delete(element); };
   });
   const portrait = document.querySelector('.hero-portrait');
-  const animation = portrait.animate([
+  const animation = portrait?.animate([
     { opacity: .4, transform: 'scale(1.045)' },
     { opacity: 1, transform: 'scale(1)' },
   ], { duration: 2000, easing: motionEase });
-  activeAnimations.set(portrait, animation);
-  animation.onfinish = () => activeAnimations.delete(portrait);
+  if (animation) {
+    activeAnimations.set(portrait, animation);
+    animation.onfinish = () => activeAnimations.delete(portrait);
+  }
 }
 
 // Animate both opening and closing, including the answer's actual height.

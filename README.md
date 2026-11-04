@@ -13,3 +13,5 @@ Open http://localhost:4173.
 Layouts: wide desktop, compact desktop/tablet, and mobile ≤699px. Verified at 1440, 768, 390 and 320px with no horizontal overflow. The page uses semantic headings, a keyboard-accessible mobile menu, native FAQ disclosure controls, and existing contact destinations. Original portraits and the planet logo are stored locally in assets/. The approved design uses cream/navy with warm secondary surfaces.
 
 Content is based on the inspected public site and education page. The first-session sequence is proposed explanatory copy for review by the practitioner before publication. No public deployment has been made.
+
+Education page: documents.html, documents.css, documents.js and assets/documents/. Category filtering, title search and an accessible native dialog support zoom, keyboard navigation, and original-image links. documents-data.json records original public source URLs and labels. Keep these files when publishing to GitHub Pages.

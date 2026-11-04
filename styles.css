@@ -36,3 +36,5 @@
   .motion-pending { opacity: 1; }
 }
 @media print { .motion-pending { opacity: 1; } }
+
+.secondary-header .header-inner{flex-wrap:nowrap}.secondary-header .home-link{flex-shrink:0;font-size:13px;min-height:44px}
