@@ -1,17 +1,54 @@
-# Psychology landing-page wireframe
+# Ksenia Spitsina (Pepina) — psychologist website
 
-Local-only, buildless HTML/CSS/JavaScript website. User-facing copy is Russian. No packages, tracking, form submissions, or external assets are required.
+A static, responsive website in Russian. HTML, CSS and browser JavaScript; no dependencies or build step.
 
-Run from this directory:
+## Project structure
+
+```text
+website/
+├── index.html                 # Main landing page
+├── pages/
+│   ├── documents.html         # Education and document gallery
+│   └── contract.html          # Psychotherapy contract
+├── assets/
+│   ├── css/                   # Shared and page-specific styles
+│   ├── js/                    # Navigation, motion and page interactions
+│   ├── images/                # Original logo and portraits
+│   └── documents/             # 27 original document scans
+├── content/
+│   ├── documents.json         # Scan labels, groups and source URLs
+│   └── contract.txt           # Original contract text
+├── docs/
+│   ├── design-notes.md        # Design decisions and motion references
+│   └── audits/2026-11-01/     # Original website audit
+├── .gitignore
+└── README.md
+```
+
+## Local preview
+
+Run from the `website` directory:
 
 ```sh
 python3 -m http.server 4173 --bind 127.0.0.1
 ```
 
-Open http://localhost:4173.
+- Main page: http://localhost:4173/
+- Education: http://localhost:4173/pages/documents.html
+- Contract: http://localhost:4173/pages/contract.html
 
-Layouts: wide desktop, compact desktop/tablet, and mobile ≤699px. Verified at 1440, 768, 390 and 320px with no horizontal overflow. The page uses semantic headings, a keyboard-accessible mobile menu, native FAQ disclosure controls, and existing contact destinations. Original portraits and the planet logo are stored locally in assets/. The approved design uses cream/navy with warm secondary surfaces.
+Keep the server root at `website`, not `pages`. All links use relative paths so the same files work under a GitHub Pages repository URL.
 
-Content is based on the inspected public site and education page. The first-session sequence is proposed explanatory copy for review by the practitioner before publication. No public deployment has been made.
+## Editing
 
-Education page: documents.html, documents.css, documents.js and assets/documents/. Category filtering, title search and an accessible native dialog support zoom, keyboard navigation, and original-image links. documents-data.json records original public source URLs and labels. Keep these files when publishing to GitHub Pages.
+- Main page copy: `index.html`.
+- Education labels and cards: `pages/documents.html`. `content/documents.json` records source metadata; it is not dynamically rendered.
+- Contract display: `pages/contract.html`; preserve the original numbered clauses. `content/contract.txt` keeps the source transcription.
+- Shared styles: `assets/css/main.css`; secondary-page styles: `assets/css/documents.css` and `assets/css/contract.css`.
+- Shared navigation and motion: `assets/js/main.js`. Gallery filters, zoom and viewer: `assets/js/documents.js`. Contract contents navigation: `assets/js/contract.js`.
+
+## Publishing
+
+Publish this directory as the repository root. GitHub Pages settings: deploy from your source branch, folder `/ (root)`. No build command is needed. Commit and push the moved files and deletions together. The secondary-page URLs now use the `pages/` prefix.
+
+The design retains the original planet logo, portraits, cream/navy palette and verified source content. Motion respects reduced-motion settings. Document viewing supports keyboard navigation and zoom. The contract has a responsive table of contents. This site does not provide an editor, payment processing or a client database.
